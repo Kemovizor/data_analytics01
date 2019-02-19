@@ -9,12 +9,9 @@ postal_code varchar(10) not null,
 latitude float not null,
 longitude float not null,
 stars float not null,
-review_count int null,
-is_open int null,
-atributes jsonb null,
+review_count int not null,
+is_open int not null,
+attributes jsonb null,
 categories varchar(1500) null,
 hours jsonb null
 );
-
-
-
