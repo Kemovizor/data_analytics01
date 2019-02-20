@@ -74,3 +74,28 @@ photo_id varchar(22) not null primary key,
 business_id varchar(22) null references Businesses(business_id),
 label varchar
 );
+
+--Get number of NULL values by column
+SELECT COUNT(*) -COUNT(business_id) As business_id,		
+		COUNT(*)-COUNT(name) As name,
+		COUNT(*)-COUNT(address) As address,
+		COUNT(*)-COUNT(city) As city,
+		COUNT(*)-COUNT(state) As state,
+		COUNT(*)-COUNT(postal_code) As postal_code,
+		COUNT(*)-COUNT(latitude) As latitude,
+		COUNT(*)-COUNT(longitude) As longitude,
+		COUNT(*)-COUNT(stars) As stars,
+		COUNT(*)-COUNT(review_count) As review_count,
+		COUNT(*)-COUNT(is_open) As is_open,
+		COUNT(*)-( SELECT COUNT(attributes) 
+				  	FROM Businesses 
+				    WHERE attributes <> '{}' )  As attributes,
+		COUNT(*)-( SELECT COUNT(categories) 
+				  	FROM Businesses 
+				    WHERE categories <> '' )  As categories,
+					--we use '' because during import null values are stored as empty string for this particular column
+		COUNT(*)-( SELECT COUNT(hours) 
+				  	FROM Businesses 
+				    WHERE hours <> '{}' )  As hours
+		
+FROM Businesses;
