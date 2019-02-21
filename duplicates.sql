@@ -30,7 +30,7 @@ SELECT SUM(temp_tbl.numOfOccurrences) -COUNT(*) AS "Total number of duplicates"
 			HAVING  COUNT(review_id)>1
 			ORDER BY 1 DESC
 			) AS temp_tbl
---RESULT: 224504
+--RESULT: 18
 
 --Get total number of duplicates :: TABLE Checkins
 SELECT SUM(temp_tbl.numOfOccurrences) -COUNT(*) AS "Total number of duplicates"
