@@ -1,6 +1,6 @@
 
 --Get total number of duplicates :: TABLE Businesses
-SELECT SUM(temp_tbl.numOfOccurrences)
+SELECT SUM(temp_tbl.numOfOccurrences) -COUNT(*) AS "Total number of duplicates"
 		FROM (
 			SELECT COUNT(business_id) numOfOccurrences
 			FROM Businesses
