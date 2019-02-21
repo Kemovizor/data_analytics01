@@ -75,7 +75,7 @@ business_id varchar(22) null references Businesses(business_id),
 label varchar
 );
 
---Get number of NULL values by column
+--Get number of NULL values by column :: TABLE Businesses
 SELECT COUNT(*) -COUNT(business_id) As business_id,		
 		COUNT(*)-COUNT(name) As name,
 		COUNT(*)-COUNT(address) As address,
@@ -99,3 +99,60 @@ SELECT COUNT(*) -COUNT(business_id) As business_id,
 				    WHERE hours <> '{}' )  As hours
 		
 FROM Businesses;
+
+--Get number of NULL values by column :: TABLE Users
+SELECT COUNT(*) -COUNT(user_id) As user_id,		
+		COUNT(*)-COUNT(name) As name,
+		COUNT(*)-COUNT(review_count) As review_count,
+		COUNT(*)-COUNT(yelping_since) As yelping_since,
+		COUNT(*)-COUNT(useful) As useful,
+		COUNT(*)-COUNT(funny) As funny,
+		COUNT(*)-COUNT(cool) As cool,
+		COUNT(*)-COUNT(elite) As elite,
+		COUNT(*)-COUNT(friends) As friends,
+		COUNT(*)-COUNT(fans) As fans,
+		COUNT(*)-COUNT(average_stars) As average_stars,
+		COUNT(*)-COUNT(compliment_hot) As compliment_hot,
+		COUNT(*)-COUNT(compliment_more) As compliment_more,
+		COUNT(*)-COUNT(compliment_profile) As compliment_profile,
+		COUNT(*)-COUNT(compliment_cute) As compliment_cute,
+		COUNT(*)-COUNT(compliment_list) As compliment_list,
+		COUNT(*)-COUNT(compliment_note) As compliment_note,
+		COUNT(*)-COUNT(compliment_plain) As compliment_plain,
+		COUNT(*)-COUNT(compliment_cool) As compliment_cool,
+		COUNT(*)-COUNT(compliment_funny) As compliment_funny,
+		COUNT(*)-COUNT(compliment_writer) As compliment_writer,
+		COUNT(*)-COUNT(compliment_photos) As compliment_photos
+FROM Users;
+
+--Get number of NULL values by column :: TABLE Reviews
+SELECT COUNT(*) -COUNT(review_id) As review_id,		
+		COUNT(*)-COUNT(user_id) As user_id,
+		COUNT(*)-COUNT(business_id) As business_id,
+		COUNT(*)-COUNT(stars) As stars,
+		COUNT(*)-COUNT(useful) As useful,
+		COUNT(*)-COUNT(funny) As funny,
+		COUNT(*)-COUNT(cool) As cool,
+		COUNT(*)-COUNT(text) As text,
+		COUNT(*)-COUNT(date) As date
+FROM Reviews;
+
+--Get number of NULL values by column :: TABLE Checkins
+SELECT COUNT(*) -COUNT(business_id) As business_id,		
+		COUNT(*)-COUNT(date) As date
+FROM Checkins;
+
+--Get number of NULL values by column :: TABLE Tips
+SELECT COUNT(*) -COUNT(user_id) As user_id,		
+		COUNT(*)-COUNT(business_id) As business_id,
+		COUNT(*)-COUNT(text) As text,
+		COUNT(*)-COUNT(date) As date,
+		COUNT(*)-COUNT(compliment_count) As compliment_count
+FROM Tips;
+
+--Get number of NULL values by column :: TABLE Photos
+SELECT COUNT(*) -COUNT(caption) As caption,		
+		COUNT(*)-COUNT(photo_id) As photo_id,
+		COUNT(*)-COUNT(business_id) As business_id,
+		COUNT(*)-COUNT(label) As label
+FROM Photos;
