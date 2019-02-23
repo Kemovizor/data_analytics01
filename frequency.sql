@@ -49,3 +49,10 @@ order by 1 desc
 --"2"	"166"
 --"1.5"	"79"
 --"1"	"15"
+
+--
+SELECT B.latitude,B.longitude,B.review_count, COUNT(R.review_id) AS calculated_review_count, B.stars, AVG(R.stars) AS calculated_stars
+FROM Businesses AS B
+INNER JOIN Reviews AS R
+ON B.business_id = R.business_id
+GROUP BY B.latitude,B.longitude,  B.review_count, B.stars

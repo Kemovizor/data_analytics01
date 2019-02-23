@@ -4,11 +4,12 @@ SELECT SUM(temp_tbl.numOfOccurrences) -COUNT(*) AS "Total number of duplicates"
 		FROM (
 			SELECT COUNT(business_id) numOfOccurrences
 			FROM Businesses
-			GROUP BY name, address, city, state
+			WHERE address <> ''
+			GROUP BY name,address,city, state
 			HAVING  COUNT(business_id)>1
 			ORDER BY 1 DESC
 			) AS temp_tbl
---RESULT: 188
+--RESULT: 182
 
 --Get total number of duplicates :: TABLE Users
 SELECT SUM(temp_tbl.numOfOccurrences) -COUNT(*) AS "Total number of duplicates"
