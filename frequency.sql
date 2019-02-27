@@ -18,20 +18,11 @@ limit 10
 --"Henderson"	"NV"	"4026"
 
 
---top 5 users by amount of 'funny' votes 
-select U.name as Reviewer, sum(R.funny) as "Total # of votes rated as funny"
-from Users AS U
-inner join Reviews AS R
-ON U.user_id = R.user_id
-group by U.name,U.yelping_since
-order by 2 desc
-limit 5
-
---"Joyce"	"21768"
---"Stefany"	"15004"
---"Christie"	"12281"
---"Karen"	"12196"
---"Soleil"	"11492"
+--us/canada states by number of businesses
+SELECT state,  COUNT(business_id) AS Total_Count
+FROM Businesses
+GROUP BY state 
+ORDER BY 2 DESC
 
 --number of businesses per star rating + additional filters
 select stars, count(business_id) as "Number of businesses"
