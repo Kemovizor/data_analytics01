@@ -6,18 +6,6 @@ group by city,state
 order by 3 desc
 limit 10
 
---"Las Vegas"	"NV"	"23784"
---"Phoenix"	"AZ"	"15471"
---"Toronto"	"ON"	"14329"
---"Charlotte"	"NC"	"7945"
---"Scottsdale"	"AZ"	"7081"
---"Calgary"	"AB"	"6445"
---"Pittsburgh"	"PA"	"5736"
---"Montréal"	"QC"	"5163"
---"Mesa"	"AZ"	"5149"
---"Henderson"	"NV"	"4026"
-
-
 --us/canada states by number of businesses
 SELECT state,  COUNT(business_id) AS Total_Count
 FROM Businesses
